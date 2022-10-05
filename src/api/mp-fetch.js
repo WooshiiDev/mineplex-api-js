@@ -8,7 +8,7 @@ export default class Mineplex
      * The base API url.
      * @return {String} - Returns the API url
      */
-    static get #API()
+    static get #api()
     {
         return 'https://mpstats.timmi6790.de/v1/';
     }
@@ -17,7 +17,7 @@ export default class Mineplex
      * The base url for leaderboards.
      * @return {String}
      */
-    static get #WebAPI()
+    static get #webURL()
     {
         return 'https://www.mineplex.com/assets/www-mp/webtest/testy.php';
     }
@@ -33,13 +33,13 @@ export default class Mineplex
      * @param {BOARDS|String} board - The leaderboard type to get.
      * @returns - The leaderboard for the game, stat, and board.
      */
-    static async GetLeaderboard(game, stat, board)
+    static async getLeaderboard(game, stat, board)
     {
         const request = appendValue(game, "?game=")
             + appendValue(stat, "&type=")
             + appendValue(board, "&boardType=");
 
-        return this.#FetchLeaderboard(stat, request);
+        return this.#fetchLeaderboard(stat, request);
 
         function appendValue(value, prefix = "", suffix = "")
         {
@@ -57,11 +57,11 @@ export default class Mineplex
      * @param {String} title - The leaderboard title.
      * @param {String} request - The request to the website.
      */
-    static async #FetchLeaderboard(title, request)
+    static async #fetchLeaderboard(title, request)
     {
         // Fetch url
 
-        const url = `${this.#WebAPI}${request}`;
+        const url = `${this.#webURL}${request}`;
         const response = await fetch(url);
 
         // Handle errors
@@ -84,7 +84,7 @@ export default class Mineplex
         // Return the leaderboard from the site
 
         const text = await response.text();
-        const leaderboardData =  await this.#FilterLeaderboardResponse(text);
+        const leaderboardData =  await this.#filterLeaderboardResponse(text);
 
         // If there's less than three array elements, there isn't a valid leaderboard.
         // This is the same if any undefined elements that exist
@@ -124,7 +124,7 @@ export default class Mineplex
      * @param text - The text to filter
      * @returns {String[]} - Returns an array containing all the leaderboard data.
      */
-    static async #FilterLeaderboardResponse(text)
+    static async #filterLeaderboardResponse(text)
     {
         // Need to exclude all unused information
 
