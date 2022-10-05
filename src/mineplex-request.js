@@ -8,7 +8,8 @@ export class Request
      * Get the leaderboards for wins in the given game.
      * @param {LB_GAMES | String} game - The game mode.
      * @param {BOARDS | String} board - The leaderboard duration type.
-     * @returns {Promise<null|Leaderboard>}
+     * @returns {Promise<null|Leaderboard>} - Returns the fetched leaderboard for wins.
+     * Can return null if a leaderboard cannot be found for the given parameters.
      */
     async GetWinLeaderboard(game, board)
     {
@@ -20,7 +21,8 @@ export class Request
      * @param {LB_GAMES | String} game - The game mode.
      * @param {String} stat - The stat the leaderboard is for.
      * @param {BOARDS | String} board - The leaderboard duration type.
-     * @returns {Promise<null|Leaderboard>}
+     * @returns {Promise<null|Leaderboard>} - Returns the fetched leaderboard.
+     * Can return null if a leaderboard cannot be found for the given parameters.
      */
     async GetLeaderboard(game, stat, board)
     {
