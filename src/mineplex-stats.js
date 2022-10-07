@@ -481,7 +481,7 @@ class Stats {
      * @param {endpointOptions | {}} options - Options required for the method.
      * @returns {Promise<Response> | {}} - Returns the response from the fetched Mineplex endpoint.
      */
-    async callEndpoint(type = '', method = '', options = {})
+    async callEndpoint(type, method, options = {})
     {
         // Validate the endpoint
 
