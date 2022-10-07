@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-export default class Mineplex
+class Mineplex
 {
     // --- Getters
 
@@ -10,7 +10,7 @@ export default class Mineplex
      */
     static get #api()
     {
-        return 'https://mpstats.timmi6790.de/v1/';
+        return 'https://mpstats.timmi6790.de/';
     }
 
     /**
@@ -23,6 +23,16 @@ export default class Mineplex
     }
 
     // --- Fetch Methods
+
+    /**
+     *
+     * @param {String} endpoint
+     * @returns {Promise<object>}
+     */
+    static async get(endpoint)
+    {
+        return await fetch(this.#api + endpoint);
+    }
 
     // --- Leaderboard Methods
 
@@ -148,7 +158,7 @@ export default class Mineplex
 /**
  * Class for representing a mineplex leaderboard.
  */
-export class Leaderboard
+class Leaderboard
 {
     // Fields
 
@@ -256,7 +266,7 @@ export class Leaderboard
 /**
  * Container for a user on a leaderboard.
  */
-export class LeaderboardUser
+class LeaderboardUser
 {
     // Fields
 
@@ -339,3 +349,5 @@ export class LeaderboardUser
         return `${position} ｜ ${this.name} - ${this.score}`;
     }
 }
+
+module.exports = {Mineplex, Leaderboard, LeaderboardUser};
