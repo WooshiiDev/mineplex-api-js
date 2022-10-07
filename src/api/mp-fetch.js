@@ -38,9 +38,9 @@ class Mineplex
 
     /**
      * Get the leaderboard for a game, stat, and board
-     * @param {LB_GAMES|String} game - The game the leaderboard is for.
+     * @param {GAMES | String} game - The game the leaderboard is for.
      * @param {String} stat - The stat the leaderboard is for.
-     * @param {BOARDS|String} board - The leaderboard type to get.
+     * @param {BOARDS | String} board - The leaderboard type to get.
      * @returns - The leaderboard for the game, stat, and board.
      */
     static async getLeaderboard(game, stat, board)
