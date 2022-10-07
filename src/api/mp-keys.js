@@ -1,4 +1,10 @@
-export const LB_GAMES =
+const PLATFORMS =
+{
+    JAVA: 'JAVA',
+    BEDROCK: 'BEDROCK'
+}
+
+const GAMES =
 {
     A_BARBARIANS_LIFE : "A Barbarians Life",
     ALIEN_INVASION : "Alien Invasion",
@@ -122,11 +128,81 @@ export const LB_GAMES =
     ZOMBIE_SURVIVAL : "Zombie Survival"
 }
 
-export const BOARDS =
+const BOARDS =
 {
     ALL_TIME : "All",
     YEARLY : "Yearly",
     MONTHLY : "Monthly",
     WEEKLY : "Weekly",
     DAILY : "Daily"
+}
+
+const ENDPOINTS =
+{
+    // --- Base
+
+    BEDROCK: 'v1/bedrock',
+    JAVA: 'v1/java',
+
+    // --- Boards
+
+    BOARDS: '/board',
+    BOARD: '/board/{0}',
+
+    // --- Filter
+
+    FILTERS: '/filter',
+    FILTER_REASONS: '/filter/reasons',
+
+    // --- Games
+
+    GAMES: '/game',
+    GAME: '/game/{0}',
+
+    GAME_CATEGORIES: '/game/category',
+    GAME_CATEGORY: '/game/category/{0}',
+
+    // --- Group
+
+    GROUPS: '/group/',
+    GROUP: '/group/{0}',
+
+    GROUP_STAT: '/group/{0}/stat/player/{1}/{2}/{3}',
+
+    // --- Leaderboard
+
+    LEADERBOARDS: '/leaderboard',
+
+    LEADERBOARD_GAME: '/leaderboard/{0}',
+    LEADERBOARD_STAT: '/leaderboard/{0}/{1}',
+
+    LEADERBOARD_STAT_BOARD: '/leaderboard/{0}/{1}/{2}',
+
+    LEADERBOARD_SAVE: '/leaderboard/{0}/{1}{2}/save',
+    LEADERBOARD_SAVE_TIMES: '/leaderboard/{0}/{1}/{2}/saves',
+
+    // --- Player
+
+    PLAYER_STAT: 'player/{0}/stats/stat/{1}/{2}',
+    PLAYER_GAME_STAT: 'player/{0}/stats/game/{1}/{2}',
+
+    PLAYER_UUID_STAT: 'player/uuid/{0}/stats/stat/{1}/{2}',
+    PLAYER_UUID_GAME_STAT: 'player/uuid/{0}/stats/game/{1}/{2}',
+
+    // --- Stats
+
+    STATS: '/stat',
+    STAT: '/stat/{0}',
+
+    // --- Website
+
+    WEBSITE: '/website/{0}'
+}
+
+module.exports =
+{
+    BOARDS,
+    ENDPOINTS,
+    GAMES,
+    PLATFORMS
 }
